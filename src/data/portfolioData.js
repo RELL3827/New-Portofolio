@@ -141,7 +141,7 @@ export const projectsData = [
     technologies: ["PHP", "Bootstrap 5", "MySQL", "JavaScript", "AJAX"],
     githubUrl: "https://github.com/RELL3827/Website-Konsultasi-Kecantikan",
     liveUrl: "https://skinsq-kecantikan-rell3827s-projects.vercel.app/",
-    metrics: "16+ Modules • Interactive Quizzes",
+    metrics: "AI Face Scanner • 9 Biomarkers",
     featured: true
   }
 ];
