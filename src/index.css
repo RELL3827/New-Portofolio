@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-space-950: #030509;
+  --color-space-900: #05070d;
+  --color-space-850: #070b14;
+  --color-space-800: #0d1527;
+  --color-space-700: #131c33;
+  --color-brand-blue: #2c67ed;
+  --color-brand-cyan: #38bdf8;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #030509;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #030509;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 1px solid rgba(44, 103, 237, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2c67ed;
+}
+
+/* Subtle Space Grid Overlay */
+.space-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(7, 11, 20, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-panel-glow {
+  background: rgba(7, 11, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(44, 103, 237, 0.3);
+  box-shadow: 0 0 25px rgba(44, 103, 237, 0.15);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button:hover {
+  background: rgba(44, 103, 237, 0.15);
+  border-color: rgba(44, 103, 237, 0.5);
+  box-shadow: 0 0 20px rgba(44, 103, 237, 0.25);
+}
+
+/* Blue Accent Button */
+.btn-primary-blue {
+  background-color: #2c67ed;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(44, 103, 237, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-blue:hover {
+  background-color: #3b74f3;
+  box-shadow: 0 0 30px rgba(44, 103, 237, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Spider-Man Easter Egg Special Effects */
+@keyframes spiderPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), inset 0 0 15px rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.8), 0 0 15px rgba(44, 103, 237, 0.5), inset 0 0 25px rgba(239, 68, 68, 0.6);
+    border-color: #ef4444;
+  }
+}
+
+.spider-active {
+  animation: spiderPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes spiderWebRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spider-web-slow {
+  animation: spiderWebRotate 30s linear infinite;
+}
+
+/* Hide default cursor on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
