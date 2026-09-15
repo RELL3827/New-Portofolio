@@ -46,8 +46,59 @@ export default function LoadingScreen({ onComplete }) {
           }}
         />
 
+        {/* Welcome Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mb-8 text-center"
+        >
+          <motion.h2
+            className="text-slate-100 text-2xl sm:text-3xl font-bold tracking-tight"
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            style={{
+              background:
+                'linear-gradient(90deg, #e2e8f0 0%, #38bdf8 25%, #7dd3fc 50%, #38bdf8 75%, #e2e8f0 100%)',
+              backgroundSize: '200% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            <motion.span
+              className="inline-block"
+              animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              style={{
+                background:
+                  'linear-gradient(90deg, #e2e8f0 0%, #38bdf8 30%, #ffffff 50%, #38bdf8 70%, #e2e8f0 100%)',
+                backgroundSize: '200% 100%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Welcome to My Portfolio Website
+            </motion.span>
+          </motion.h2>
+        </motion.div>
+
         {/* Realistic Lightning SVG */}
-        <div className="relative w-40 h-64 flex items-center justify-center mb-6">
+        <motion.div
+          className="relative w-40 h-64 flex items-center justify-center mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1, ease: 'easeInOut' }}
+        >
           <motion.svg 
             viewBox="0 0 100 260" 
             className="w-full h-full overflow-visible drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]"
@@ -117,7 +168,7 @@ export default function LoadingScreen({ onComplete }) {
               transition={{ duration: 0.1 }}
             />
           </motion.svg>
-        </div>
+        </motion.div>
 
         {/* Loading Progress Text & Bar */}
         <div className="flex flex-col items-center gap-2">
