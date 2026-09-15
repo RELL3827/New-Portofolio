@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import LoadingScreen from './components/LoadingScreen';
 import SpaceBackground from './components/SpaceBackground';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
@@ -13,9 +15,16 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="relative min-h-screen bg-[#030509] text-slate-100 font-sans selection:bg-[#2c67ed]/30 selection:text-white">
-      {/* Interactive Space Starfield & Ambient Glow Canvas */}
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
+      <div className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 h-screen overflow-hidden pointer-events-none' : 'opacity-100'}`}>
+        {/* Interactive Space Starfield & Ambient Glow Canvas */}
       <SpaceBackground />
 
       {/* Smooth Trailing Blue Cursor with Spider-Sense mode */}
@@ -40,6 +49,7 @@ export default function App() {
 
       {/* Minimalist Futuristic Footer */}
       <Footer />
+      </div>
     </div>
   );
 }

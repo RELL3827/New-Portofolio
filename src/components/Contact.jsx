@@ -61,15 +61,24 @@ export default function Contact() {
     setErrors({});
     setIsSubmitting(true);
 
-    // Simulate futuristic transmission delay
+    // Simulate short processing before redirecting to WhatsApp
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
+      
+      // Construct WhatsApp message
+      const phoneNumber = '6281818434093'; // 081818434093
+      const text = `Halo, saya ${formData.name}.\nEmail: ${formData.email}\nSubjek: ${formData.subject}\n\nPesan:\n${formData.message}`;
+      const encodedText = encodeURIComponent(text);
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+      
+      window.open(whatsappUrl, '_blank');
+      
       setFormData({ name: '', email: '', subject: '', message: '' });
 
       // Auto dismiss success toast after 6 seconds
       setTimeout(() => setIsSubmitted(false), 6000);
-    }, 1200);
+    }, 800);
   };
 
   const handleChange = (e) => {
