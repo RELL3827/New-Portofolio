@@ -4,12 +4,12 @@ export const personalData = {
   greeting: "Hello, I'm",
   birthDate: "17 Mei 2006",
   roles: [
-    "Junior Developer",
-    "Tech Enthusiast",
-    "Web Developer",
+    "Frontend Developer",
+    "UI Engineer",
+    "React Enthusiast",
     "Problem Solver"
   ],
-  bio: "Saya membangun website dan aplikasi modern dengan fokus pada pengalaman pengguna, clean code, dan teknologi yang terus berkembang.",
+  bio: "Saya membangun antarmuka web modern dan interaktif dengan fokus pada pengalaman pengguna, performa, dan detail visual yang presisi.",
   about: [
     "Saya adalah seorang Junior Developer dan Tech Enthusiast yang menempuh pendidikan di Universitas Muhammadiyah Cilegon (Teknik Informatika). Saya memiliki ketertarikan mendalam terhadap web development, arsitektur software, otomasi, dan eksplorasi teknologi futuristik.",
     "Bagi saya, coding bukan sekadar menulis sintaks, melainkan seni menyelesaikan masalah dunia nyata dan menciptakan pengalaman digital yang intuitif, cepat, dan estetis. Selalu bersemangat mempelajari framework terkini dan best practice industri."
@@ -17,7 +17,7 @@ export const personalData = {
   institution: "Universitas Muhammadiyah Cilegon",
   major: "Teknik Informatika",
   location: "Cilegon, Banten, Indonesia",
-  focus: "Full-Stack Web Development & Modern UI",
+  focus: "Frontend Development & Modern UI",
   experiencePeriod: "2+ Years Learning & Building",
   status: "Available for Projects & Collaboration",
   email: "contact@farelrizky.dev",
