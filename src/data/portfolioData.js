@@ -127,7 +127,7 @@ export const projectsData = [
     image: "/projects/kasirku.svg",
     technologies: ["Laravel", "PHP", "MySQL", "Alpine.js", "Tailwind CSS"],
     githubUrl: "https://github.com/RELL3827/KasirKu-Manajemen",
-    liveUrl: "-",
+    liveUrl: "https://kasir-ku-manajemen.vercel.app/",
     metrics: "Instant Checkout • Barcode Scanner",
     featured: true
   },
