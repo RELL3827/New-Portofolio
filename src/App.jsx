@@ -2,6 +2,7 @@ import React from 'react';
 import SpaceBackground from './components/SpaceBackground';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
+import MusicPlayer from './components/MusicPlayer';
 import Hero from './components/Hero';
 import About from './components/About';
 import Education from './components/Education';
@@ -22,6 +23,9 @@ export default function App() {
 
       {/* Floating Centered Glass Pill Navbar */}
       <Navbar />
+
+      {/* Floating Aesthetic Music Player (bye x into you) */}
+      <MusicPlayer />
 
       {/* Main Content Sections */}
       <main className="relative z-10 flex flex-col gap-8 md:gap-12">

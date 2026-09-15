@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, Terminal, User, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, Sparkles, Terminal, User, Briefcase, Mail, Music } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', href: '#hero', id: 'hero', icon: Terminal },
@@ -13,6 +13,20 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+  // Sync music playback state with MusicPlayer component
+  useEffect(() => {
+    const handleMusicChange = (e) => {
+      setIsMusicPlaying(!!e.detail?.isPlaying);
+    };
+    window.addEventListener('music-playback-changed', handleMusicChange);
+    return () => window.removeEventListener('music-playback-changed', handleMusicChange);
+  }, []);
+
+  const toggleMusic = () => {
+    window.dispatchEvent(new CustomEvent('toggle-music-playback'));
+  };
 
   // Scroll listener for background opacity and active section tracking
   useEffect(() => {
@@ -110,12 +124,36 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Action Button: Let's Connect */}
-          <div className="hidden sm:flex items-center">
+          {/* Action Buttons: Music & Let's Connect */}
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={toggleMusic}
+              className={`px-2.5 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 border ${
+                isMusicPlaying
+                  ? 'text-[#38bdf8] border-[#38bdf8]/50 bg-[#2c67ed]/25 shadow-[0_0_15px_rgba(56,189,248,0.4)]'
+                  : 'text-slate-300 border-white/10 hover:text-white hover:bg-white/10'
+              }`}
+              title={isMusicPlaying ? 'Pause Music (bye x into you)' : 'Play Music (bye x into you)'}
+              aria-label="Toggle Music Track"
+              data-cursor="hover"
+            >
+              <Music size={13} className={isMusicPlaying ? 'animate-pulse text-[#38bdf8]' : 'text-slate-400'} />
+              <span className="hidden xs:inline-block text-[11px]">
+                {isMusicPlaying ? 'Playing' : 'Soundtrack'}
+              </span>
+              {isMusicPlaying && (
+                <span className="flex items-end gap-0.5 h-2.5">
+                  <span className="w-0.5 h-2.5 bg-[#38bdf8] rounded-full animate-bounce" />
+                  <span className="w-0.5 h-1.5 bg-[#38bdf8] rounded-full animate-bounce [animation-delay:150ms]" />
+                  <span className="w-0.5 h-2 bg-[#38bdf8] rounded-full animate-bounce [animation-delay:300ms]" />
+                </span>
+              )}
+            </button>
+
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-              className="px-3.5 py-1.5 rounded-full text-xs font-medium text-[#38bdf8] border border-[#2c67ed]/40 hover:bg-[#2c67ed]/20 transition-all hover:shadow-[0_0_15px_rgba(44,103,237,0.35)]"
+              className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs font-medium text-[#38bdf8] border border-[#2c67ed]/40 hover:bg-[#2c67ed]/20 transition-all hover:shadow-[0_0_15px_rgba(44,103,237,0.35)]"
               data-cursor="hover"
             >
               Hire Me
@@ -164,7 +202,20 @@ export default function Navbar() {
                   </a>
                 );
               })}
-              <div className="pt-2 mt-1 border-t border-white/10">
+              
+              <div className="pt-2 mt-1 border-t border-white/10 flex flex-col gap-2">
+                <button
+                  onClick={toggleMusic}
+                  className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-all ${
+                    isMusicPlaying
+                      ? 'bg-[#2c67ed]/25 border-[#38bdf8]/50 text-[#38bdf8]'
+                      : 'bg-white/5 border-white/10 text-slate-200'
+                  }`}
+                >
+                  <Music size={15} />
+                  <span>{isMusicPlaying ? 'Pause bye x into you 🎵' : 'Play bye x into you 🎵'}</span>
+                </button>
+
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact', 'contact')}
