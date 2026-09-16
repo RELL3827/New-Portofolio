@@ -11,10 +11,31 @@ import {
   ChevronUp,
   ChevronDown,
   Sparkles,
+  SkipForward,
+  SkipBack,
 } from 'lucide-react';
+
+
+const TRACKS = [
+  {
+    title: 'bye x into you',
+    artist: 'Ariana Grande • Altare Remix',
+    src: '/audio/bye-x-into-you.mp3',
+    cover: '/audio/bye-x-into-you-cover.jpg',
+  },
+  {
+    title: 'Animals x Starboy',
+    artist: 'Maroon 5 x The Weeknd',
+    src: '/audio/animals-x-starboy.mp3',
+    cover: '/audio/bye-x-into-you-cover.jpg', // Default cover if missing
+  }
+];
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const track = TRACKS[currentTrackIndex];
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(244.42);
@@ -28,13 +49,17 @@ export default function MusicPlayer() {
   // Initialize and persist audio instance
   useEffect(() => {
     let audio = audioRef.current;
-    if (!audio) {
-      audio = new Audio('/audio/bye-x-into-you.mp3');
-      audio.preload = 'auto';
-      audio.loop = isLooping;
-      audio.volume = isMuted ? 0 : volume;
-      audioRef.current = audio;
+    const wasPlaying = isPlaying;
+    
+    if (audio) {
+      audio.pause();
     }
+    
+    audio = new Audio(track.src);
+    audio.preload = 'auto';
+    audio.loop = isLooping;
+    audio.volume = isMuted ? 0 : volume;
+    audioRef.current = audio;
 
     const onPlay = () => setIsPlaying(true);
     const onPause = () => {
@@ -55,7 +80,7 @@ export default function MusicPlayer() {
         audio.currentTime = 0;
         audio.play().catch((err) => console.warn('Auto-loop resume:', err));
       } else {
-        setIsPlaying(false);
+        handleNextTrack();
       }
     };
     const onError = (e) => {
@@ -74,6 +99,10 @@ export default function MusicPlayer() {
     audio.addEventListener('ended', onEnded);
     audio.addEventListener('error', onError);
 
+    if (wasPlaying) {
+      audio.play().catch(() => setIsPlaying(false));
+    }
+
     return () => {
       audio.removeEventListener('play', onPlay);
       audio.removeEventListener('pause', onPause);
@@ -81,8 +110,9 @@ export default function MusicPlayer() {
       audio.removeEventListener('loadedmetadata', onLoadedMetadata);
       audio.removeEventListener('ended', onEnded);
       audio.removeEventListener('error', onError);
+      audio.pause();
     };
-  }, [isLooping, isSeeking, isPlaying]);
+  }, [isLooping, isSeeking, currentTrackIndex]);
 
   // Synchronize audio loop property
   useEffect(() => {
@@ -197,6 +227,14 @@ export default function MusicPlayer() {
     }
   }, []);
 
+  const handleNextTrack = useCallback(() => {
+    setCurrentTrackIndex((prev) => (prev + 1) % TRACKS.length);
+  }, []);
+
+  const handlePrevTrack = useCallback(() => {
+    setCurrentTrackIndex((prev) => (prev - 1 + TRACKS.length) % TRACKS.length);
+  }, []);
+
   const handleSeekStart = () => {
     setIsSeeking(true);
   };
@@ -262,7 +300,7 @@ export default function MusicPlayer() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2c67ed]"></span>
             </span>
             <span className="font-medium text-slate-100">
-              Play soundtrack: <span className="text-[#38bdf8] font-semibold">bye x into you</span> 🎵
+              Play soundtrack: <span className="text-[#38bdf8] font-semibold">{track.title}</span> 🎵
             </span>
             <button
               onClick={(e) => {
@@ -349,8 +387,8 @@ export default function MusicPlayer() {
                   data-cursor="hover"
                 >
                   <img
-                    src="/audio/bye-x-into-you-cover.jpg"
-                    alt="bye x into you cover"
+                    src={track.cover}
+                    alt={`${track.title} cover`}"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -369,10 +407,10 @@ export default function MusicPlayer() {
             {/* Song Information */}
             <div className="text-center mt-3">
               <h4 className="font-heading font-bold text-sm tracking-wide text-white flex items-center justify-center gap-1.5">
-                <span>bye x into you</span>
+                <span>{track.title}</span>
                 <Sparkles size={13} className="text-[#38bdf8]" />
               </h4>
-              <p className="text-[11px] text-slate-400 mt-0.5">Ariana Grande • Altare Remix</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">{track.artist}</p>
             </div>
 
             {/* Seek Timeline */}
@@ -421,17 +459,17 @@ export default function MusicPlayer() {
                 <Repeat size={15} />
               </button>
 
-              {/* Rewind 10s */}
+              {/* Previous Track */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  skipTime(-10);
+                  handlePrevTrack();
                 }}
                 className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all"
-                title="Rewind 10 seconds"
+                title="Previous Track"
                 data-cursor="hover"
               >
-                <RotateCcw size={15} />
+                <SkipBack size={15} />
               </button>
 
               {/* Play / Pause Circular Button */}
@@ -449,17 +487,17 @@ export default function MusicPlayer() {
                 {isPlaying ? <Pause size={18} /> : <Play size={18} className="ml-0.5" />}
               </motion.button>
 
-              {/* Forward 10s */}
+              {/* Next Track */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  skipTime(10);
+                  handleNextTrack();
                 }}
                 className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/5 transition-all"
-                title="Forward 10 seconds"
+                title="Next Track"
                 data-cursor="hover"
               >
-                <RotateCw size={15} />
+                <SkipForward size={15} />
               </button>
 
               {/* Volume & Mute Control */}
@@ -506,7 +544,7 @@ export default function MusicPlayer() {
         {/* Mini Spinning Vinyl Disc Thumbnail */}
         <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-white/20 shadow-md">
           <motion.img
-            src="/audio/bye-x-into-you-cover.jpg"
+            src={track.cover}"
             alt="Track Artwork"
             className="w-full h-full object-cover"
             animate={{ rotate: isPlaying ? 360 : 0 }}
@@ -524,7 +562,7 @@ export default function MusicPlayer() {
         <div className="flex flex-col pr-1">
           <div className="flex items-center gap-1.5">
             <span className="font-heading font-medium text-xs text-slate-100 group-hover:text-[#38bdf8] transition-colors max-w-[110px] sm:max-w-[130px] truncate">
-              bye x into you
+              {track.title}
             </span>
           </div>
 
@@ -557,7 +595,7 @@ export default function MusicPlayer() {
               />
             ))}
             <span className="text-[9px] text-slate-400 ml-1.5 font-mono">
-              {isPlaying ? formatTime(currentTime) : 'Ariana Grande'}
+              {isPlaying ? formatTime(currentTime) : track.artist.split('•')[0].trim()}
             </span>
           </div>
         </div>
