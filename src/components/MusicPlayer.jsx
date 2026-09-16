@@ -388,7 +388,7 @@ export default function MusicPlayer() {
                 >
                   <img
                     src={track.cover}
-                    alt={`${track.title} cover`}"
+                    alt={`${track.title} cover`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -544,7 +544,7 @@ export default function MusicPlayer() {
         {/* Mini Spinning Vinyl Disc Thumbnail */}
         <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-white/20 shadow-md">
           <motion.img
-            src={track.cover}"
+            src={track.cover}
             alt="Track Artwork"
             className="w-full h-full object-cover"
             animate={{ rotate: isPlaying ? 360 : 0 }}
