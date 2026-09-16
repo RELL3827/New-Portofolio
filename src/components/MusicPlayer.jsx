@@ -46,6 +46,14 @@ export default function MusicPlayer() {
   const [showPrompt, setShowPrompt] = useState(true);
   const [isSeeking, setIsSeeking] = useState(false);
 
+  const handleNextTrack = useCallback(() => {
+    setCurrentTrackIndex((prev) => (prev + 1) % TRACKS.length);
+  }, []);
+
+  const handlePrevTrack = useCallback(() => {
+    setCurrentTrackIndex((prev) => (prev - 1 + TRACKS.length) % TRACKS.length);
+  }, []);
+
   // Initialize and persist audio instance
   useEffect(() => {
     let audio = audioRef.current;
@@ -233,14 +241,6 @@ export default function MusicPlayer() {
           console.warn('Audio play request failed or was interrupted:', err);
         });
     }
-  }, []);
-
-  const handleNextTrack = useCallback(() => {
-    setCurrentTrackIndex((prev) => (prev + 1) % TRACKS.length);
-  }, []);
-
-  const handlePrevTrack = useCallback(() => {
-    setCurrentTrackIndex((prev) => (prev - 1 + TRACKS.length) % TRACKS.length);
   }, []);
 
   const handleSeekStart = () => {
