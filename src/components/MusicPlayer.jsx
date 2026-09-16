@@ -49,17 +49,26 @@ export default function MusicPlayer() {
   // Initialize and persist audio instance
   useEffect(() => {
     let audio = audioRef.current;
-    const wasPlaying = isPlaying;
     
-    if (audio) {
+    // Create audio instance if it doesn't exist
+    if (!audio) {
+      audio = new Audio(track.src);
+      audioRef.current = audio;
+    } 
+    // If audio exists but track changed, update src and play
+    else if (!audio.src.endsWith(track.src)) {
+      const wasPlaying = !audio.paused;
       audio.pause();
+      audio.src = track.src;
+      audio.load();
+      if (wasPlaying || isPlaying) {
+        audio.play().catch(() => setIsPlaying(false));
+      }
     }
     
-    audio = new Audio(track.src);
     audio.preload = 'auto';
     audio.loop = isLooping;
     audio.volume = isMuted ? 0 : volume;
-    audioRef.current = audio;
 
     const onPlay = () => setIsPlaying(true);
     const onPause = () => {
@@ -85,11 +94,6 @@ export default function MusicPlayer() {
     };
     const onError = (e) => {
       console.warn('Audio playback error, attempting recover:', e);
-      if (isPlaying) {
-        setTimeout(() => {
-          audio.play().catch(() => {});
-        }, 500);
-      }
     };
 
     audio.addEventListener('play', onPlay);
@@ -99,10 +103,6 @@ export default function MusicPlayer() {
     audio.addEventListener('ended', onEnded);
     audio.addEventListener('error', onError);
 
-    if (wasPlaying) {
-      audio.play().catch(() => setIsPlaying(false));
-    }
-
     return () => {
       audio.removeEventListener('play', onPlay);
       audio.removeEventListener('pause', onPause);
@@ -110,9 +110,17 @@ export default function MusicPlayer() {
       audio.removeEventListener('loadedmetadata', onLoadedMetadata);
       audio.removeEventListener('ended', onEnded);
       audio.removeEventListener('error', onError);
-      audio.pause();
     };
-  }, [isLooping, isSeeking, currentTrackIndex]);
+  }, [isLooping, isSeeking, track.src, handleNextTrack, isMuted, volume, isPlaying]);
+
+  // Clean up audio on unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, []);
 
   // Synchronize audio loop property
   useEffect(() => {
