@@ -135,23 +135,6 @@ export default function ProfileSpiderEgg({ className = '' }) {
               loading="eager"
             />
 
-            {/* 2. Periodic Morphin Grid Breathing Hint when idle */}
-            <motion.div
-              className="absolute inset-0 pointer-events-none z-10"
-              animate={{ opacity: isHovered ? 0 : [0, 0.4, 0.4, 0] }}
-              transition={{
-                opacity: isHovered
-                  ? { duration: 0.25 }
-                  : { repeat: Infinity, duration: 4.5, repeatDelay: 2.5, times: [0, 0.4, 0.6, 1], ease: "easeInOut" }
-              }}
-            >
-              <img
-                src="/powerranger.png"
-                alt="Power Ranger Biru Hint"
-                className="w-full h-full object-contain object-bottom drop-shadow-[0_0_35px_rgba(44,103,237,0.5)]"
-              />
-            </motion.div>
-
             {/* 3. Dynamic Cursor-Touch Reveal (Power Ranger Biru materializes where cursor touches) */}
             {/* Power Ranger Biru Easter Egg */}
             <motion.div
