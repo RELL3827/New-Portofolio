@@ -206,7 +206,7 @@ export const projectsData = [
     subtitle: "Sistem Manajemen & Kasir POS Laundry Modern",
     category: "SaaS Application",
     description: "Aplikasi kasir POS laundry modern berbasis cloud dengan fitur nota digital WhatsApp otomatis, pelacakan cucian real-time oleh pelanggan, dan laporan keuangan multi-outlet.",
-    image: "/projects/kasirku.svg",
+    image: "/projects/edulearn.svg",
     technologies: ["React", "Tailwind CSS", "Laravel", "MySQL"],
     githubUrl: "https://github.com/RELL3827",
     liveUrl: "https://saa-s-laundry-manajemen.vercel.app/",
