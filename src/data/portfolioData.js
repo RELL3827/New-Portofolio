@@ -5,27 +5,30 @@ export const personalData = {
   birthDate: "17 Mei 2006",
   roles: [
     "Frontend Developer",
+    "Network & IT Specialist",
     "UI Engineer",
-    "React Enthusiast",
     "Problem Solver"
   ],
-  bio: "Saya membangun antarmuka web modern dan interaktif dengan fokus pada pengalaman pengguna, performa, dan detail visual yang presisi.",
+  bio: "Lulusan Teknik Komputer & Jaringan dan mahasiswa Teknik Informatika dengan dedikasi tinggi. Menggabungkan pengalaman kerja nyata di industri operasional, pemahaman infrastruktur jaringan, serta keahlian rekayasa antarmuka web modern.",
   about: [
-    "Saya adalah seorang Junior Developer dan Tech Enthusiast yang menempuh pendidikan di Universitas Muhammadiyah Cilegon (Teknik Informatika). Saya memiliki ketertarikan mendalam terhadap web development, arsitektur software, otomasi, dan eksplorasi teknologi futuristik.",
-    "Bagi saya, coding bukan sekadar menulis sintaks, melainkan seni menyelesaikan masalah dunia nyata dan menciptakan pengalaman digital yang intuitif, cepat, dan estetis. Selalu bersemangat mempelajari framework terkini dan best practice industri."
+    "Saya, Farel Rizky Pratama, adalah lulusan baru yang penuh semangat dan siap untuk membawa energi positif ke dunia profesional. Dengan latar belakang pendidikan dalam komputer dan jaringan serta studi S1 Teknik Informatika di Universitas Muhammadiyah Cilegon, saya telah mendapatkan pemahaman yang kuat tentang ilmu komputer dan keterampilan praktis yang diperlukan untuk berkembang di dunia kerja.",
+    "Bagi saya, setiap peran—mulai dari melayani pelanggan & menaikkan sales di industri F&B, merancang SOP usaha kecil, mengelola logistik & live commerce TikTok, hingga membangun aplikasi web modern—selalu dijalani dengan integritas, kepemimpinan adaptif, dan rasa tanggung jawab penuh."
   ],
   institution: "Universitas Muhammadiyah Cilegon",
   major: "Teknik Informatika",
   location: "Cilegon, Banten, Indonesia",
-  focus: "Frontend Development & Modern UI",
-  experiencePeriod: "2+ Years Learning & Building",
-  status: "Available for Projects & Collaboration",
-  email: "contact@farelrizky.dev",
+  focus: "Frontend Development & IT Operations",
+  experiencePeriod: "3+ Years Professional & Project Journey",
+  status: "Available for Work & Collaboration",
+  email: "farelrizky801@gmail.com",
+  phone: "+6281818434093",
+  cvPdfUrl: "/CV_Farel_Rizky_Pratama.pdf",
+  cvPreviewUrl: "/cv-preview.jpg"
 };
 
 export const educationData = [
   {
-    period: "2023 — Present",
+    period: "2024 — Present",
     institution: "Universitas Muhammadiyah Cilegon",
     degree: "S1 Teknik Informatika (Informatics Engineering)",
     description: "Fokus mendalami software engineering, struktur data & algoritma, perancangan database relasional, pemrograman web modern, serta arsitektur sistem informasi terintegrasi.",
@@ -33,18 +36,18 @@ export const educationData = [
     highlight: true
   },
   {
-    period: "2020 — 2023",
-    institution: "SMK Fatahillah 2 Cilegon",
-    degree: "Teknik Komputer Dan Jaringan (TKJ)",
-    description: "Mempelajari infrastruktur jaringan komputer, routing & switching, administrasi server Linux/Windows, keamanan jaringan, perakitan perangkat keras, dan dasar-dasar pemrograman web.",
-    badge: "Graduated",
+    period: "2021 — 2024",
+    institution: "SMK YP FATAHILLAH 2",
+    degree: "Teknik Komputer dan Jaringan (TKJ)",
+    description: "Mempersiapkan kemampuan dalam mengelola berbagai aspek teknologi dan operasional, seperti software engineer, content creator, pemasaran digital, instalasi jaringan komputer, produksi, operasi, dan strategi bisnis.",
+    badge: "Graduated (2024)",
     highlight: false
   },
   {
-    period: "2017 — 2020",
+    period: "2018 — 2021",
     institution: "SMP Negeri 2 Cilegon",
     degree: "Pendidikan Menengah Pertama",
-    description: "Membangun fondasi logika berpikir analitis, literasi sains & matematika, eksplorasi komputer dasar, dan ketertarikan awal yang kuat terhadap dunia teknologi dan digital.",
+    description: "Membangun fondasi logika berpikir analitis, literasi sains & matematika, eksplorasi komputer dasar, dan kepemimpinan.",
     badge: "Alumni",
     highlight: false
   }
@@ -52,32 +55,91 @@ export const educationData = [
 
 export const experienceData = [
   {
+    position: "Cook Helper & Catering Operations",
+    company: "PT Bornou (Cafe & Resto)",
+    period: "2026 — 2026",
+    duration: "2 Bulan",
+    category: "industry",
+    categoryLabel: "F&B & Catering",
+    description: "Bertanggung jawab sebagai cook helper dalam memproses dan menyiapkan pesanan makanan untuk katering berskala besar dengan manajemen waktu yang cepat, disiplin tinggi, dan standar higienis dapur.",
+    technologies: ["Food & Beverage", "Catering Workflow", "Team Collaboration", "Time Management", "Hygiene SOP"],
+    isCurrent: false
+  },
+  {
+    position: "Store Crew & Kitchen Cook",
+    company: "PT Almaz Food (Almaz Fried Chicken)",
+    period: "2025 — 2025",
+    duration: "6 Bulan",
+    category: "industry",
+    categoryLabel: "F&B & Sales",
+    description: "Bertanggung jawab memberikan pelayanan prima kepada pelanggan, membantu memasak sesuai standar SOP perusahaan, menjaga kebersihan outlet, serta aktif berkontribusi menaikkan sales outlet.",
+    technologies: ["Customer Service", "Sales Growth", "Kitchen SOP", "Cleanliness Maintenance", "Team Coordination"],
+    isCurrent: false
+  },
+  {
+    position: "Frontline Service & Outlet Crew",
+    company: "PT Wahana Kulinrr Indonesia (Labbaik Chicken)",
+    period: "2024 — 2024",
+    duration: "3 Bulan",
+    category: "industry",
+    categoryLabel: "F&B & Service",
+    description: "Bertanggung jawab memberikan pelayanan konsumen yang sigap dan ramah, menjaga kebersihan dan kerapian lingkungan outlet, serta aktif berkolaborasi dengan tim untuk menaikkan sales outlet.",
+    technologies: ["Customer Relations", "Sales Optimization", "Cashier & Transactions", "Operational SOP"],
+    isCurrent: false
+  },
+  {
+    position: "Staff Admin & SOP Project Assistant",
+    company: "PT Integritas",
+    period: "2023 — 2023",
+    duration: "Pelatihan & Magang",
+    category: "industry",
+    categoryLabel: "Administration & SOP",
+    description: "Bertanggung jawab membantu staf admin dalam menjalankan operasional projek, serta menyusun dan merapikan Standard Operating Procedure (SOP) untuk usaha-usaha kecil (UMKM) agar alur bisnis terstruktur.",
+    technologies: ["Project Administration", "SOP Development", "Business Documentation", "Workflow Structuring"],
+    isCurrent: false
+  },
+  {
+    position: "Warehouse Inspector & Live Commerce Host",
+    company: "PT ARTAPURI",
+    period: "2022 — 2023",
+    duration: "Praktik Kerja Lapangan (PKL)",
+    category: "industry",
+    categoryLabel: "Logistics & Live Sales",
+    description: "Bertanggung jawab dalam pengecekan dan kontrol kualitas barang logistik masuk/keluar, serta bertindak sebagai Host Live Streaming TikTok untuk mempromosikan dan menjual produk perusahaan secara interaktif.",
+    technologies: ["Live TikTok Commerce", "Goods Quality Control", "Public Speaking", "Digital Marketing", "Social Media Sales"],
+    isCurrent: false
+  },
+  {
     position: "Freelance Junior Web Developer",
     company: "Independent / Client Projects",
     period: "2024 — Present",
-    description: "Merancang dan membangun aplikasi web kustom untuk kebutuhan bisnis lokal, integrasi database, pembuatan dashboard manajemen, serta implementasi antarmuka responsif.",
-    technologies: ["PHP", "Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
+    duration: "Ongoing",
+    category: "tech",
+    categoryLabel: "Web Development",
+    description: "Merancang dan membangun aplikasi web kustom untuk kebutuhan bisnis lokal, integrasi database relasional, dashboard manajemen, serta implementasi antarmuka interaktif dan responsif.",
+    technologies: ["PHP", "Laravel", "Tailwind CSS", "MySQL", "JavaScript", "React"],
     isCurrent: true
   },
   {
     position: "Academic Project Lead & Web Builder",
     company: "Universitas Muhammadiyah Cilegon Project Works",
     period: "2023 — Present",
-    description: "Memimpin perancangan dan implementasi proyek praktikum rekayasa perangkat lunak, sistem Point of Sale (POS), sistem inventaris, dan platform e-learning.",
-    technologies: ["Laravel", "MySQL", "Bootstrap", "Git", "REST API"],
+    duration: "Academic",
+    category: "tech",
+    categoryLabel: "Software Engineering",
+    description: "Memimpin perancangan dan implementasi proyek praktikum rekayasa perangkat lunak, sistem Point of Sale (POS) KasirKu, sistem manajemen keuangan ElTrack, dan platform konsultasi kecantikan.",
+    technologies: ["Laravel", "MySQL", "Bootstrap", "Git", "REST API", "Tailwind CSS"],
     isCurrent: true
-  },
-  {
-    position: "Self-Directed Tech Explorer & Contributor",
-    company: "Open Source & Tech Community",
-    period: "2023 — Present",
-    description: "Secara konsisten bereksplorasi dengan framework modern React, Tailwind CSS, Framer Motion, serta mengadopsi clean code dan version control best practice.",
-    technologies: ["React", "JavaScript ES6+", "Tailwind CSS", "Git / GitHub"],
-    isCurrent: false
   }
 ];
 
 export const statsData = [
+  {
+    value: 5,
+    suffix: "+",
+    label: "Professional Roles",
+    description: "F&B, Logistics, Admin & Web Dev"
+  },
   {
     value: 10,
     suffix: "+",
@@ -85,22 +147,16 @@ export const statsData = [
     description: "Web apps, dashboards & prototypes"
   },
   {
-    value: 5,
+    value: 3,
     suffix: "+",
-    label: "Core Technologies",
-    description: "Modern frontend & backend stack"
-  },
-  {
-    value: 2,
-    suffix: "+",
-    label: "Years Learning",
-    description: "Hands-on coding & problem solving"
+    label: "Years Real Experience",
+    description: "Hands-on work & technical practice"
   },
   {
     value: 100,
     suffix: "%",
-    label: "Curiosity & Passion",
-    description: "Continuous daily evolution"
+    label: "Dedication & Work Ethic",
+    description: "Responsible & leadership-driven"
   }
 ];
 
@@ -147,6 +203,17 @@ export const projectsData = [
 ];
 
 export const techStackCategories = [
+  {
+    category: "Professional & Operational Skills (From CV)",
+    description: "Infrastruktur jaringan, kepemimpinan, SOP, & e-commerce",
+    skills: [
+      { name: "Installasi Jaringan", level: "Mastery", icon: "Network", color: "#38bdf8", tag: "TKJ / Hardware" },
+      { name: "Kemampuan Leadership", level: "Advanced", icon: "Shield", color: "#10b981", tag: "Team Leadership" },
+      { name: "Bertanggung Jawab", level: "Mastery", icon: "CheckCircle", color: "#facc15", tag: "Work Ethic" },
+      { name: "Penyusunan SOP", level: "Proficient", icon: "FileText", color: "#ec4899", tag: "Business Process" },
+      { name: "TikTok Live Commerce", level: "Proficient", icon: "Video", color: "#a855f7", tag: "Digital Sales & QC" }
+    ]
+  },
   {
     category: "Frontend Development",
     description: "Modern, responsive, performant user interfaces",
@@ -207,7 +274,7 @@ export const socialLinks = [
     name: "Email",
     url: "mailto:farelrizky801@gmail.com",
     icon: "Mail",
-    username: "@Farelrizky801",
+    username: "farelrizky801@gmail.com",
     color: "#2c67ed"
   }
 ];

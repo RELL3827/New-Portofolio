@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, Terminal, User, Briefcase, Mail, Music } from 'lucide-react';
+import { Menu, X, Sparkles, Terminal, User, Briefcase, Mail, Music, FileText } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', href: '#hero', id: 'hero', icon: Terminal },
@@ -9,7 +9,7 @@ const navItems = [
   { label: 'Contact', href: '#contact', id: 'contact', icon: Mail },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenCv }) {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -150,10 +150,21 @@ export default function Navbar() {
               )}
             </button>
 
+            {/* Curriculum Vitae Button */}
+            <button
+              onClick={onOpenCv}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#38bdf8] bg-[#2c67ed]/15 hover:bg-[#2c67ed]/30 border border-[#2c67ed]/40 hover:border-[#38bdf8] transition-all hover:shadow-[0_0_15px_rgba(44,103,237,0.35)] cursor-pointer"
+              title="Lihat & Download CV"
+              data-cursor="hover"
+            >
+              <FileText size={12} className="text-[#38bdf8]" />
+              <span>CV</span>
+            </button>
+
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-              className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs font-medium text-[#38bdf8] border border-[#2c67ed]/40 hover:bg-[#2c67ed]/20 transition-all hover:shadow-[0_0_15px_rgba(44,103,237,0.35)]"
+              className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white border border-white/10 hover:bg-white/10 transition-all"
               data-cursor="hover"
             >
               Hire Me
@@ -205,6 +216,17 @@ export default function Navbar() {
               
               <div className="pt-2 mt-1 border-t border-white/10 flex flex-col gap-2">
                 <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (onOpenCv) onOpenCv();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#2c67ed]/25 border border-[#38bdf8]/40 text-[#38bdf8] text-sm font-medium hover:bg-[#2c67ed]/35 transition-all shadow-[0_0_15px_rgba(44,103,237,0.3)]"
+                >
+                  <FileText size={15} />
+                  <span>Curriculum Vitae (PDF)</span>
+                </button>
+
+                <button
                   onClick={toggleMusic}
                   className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-all ${
                     isMusicPlaying
@@ -219,7 +241,7 @@ export default function Navbar() {
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#2c67ed]/20 border border-[#2c67ed]/40 text-[#38bdf8] text-sm font-medium hover:bg-[#2c67ed]/30"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 text-sm font-medium hover:bg-white/10"
                 >
                   <Sparkles size={14} /> Let's Talk
                 </a>

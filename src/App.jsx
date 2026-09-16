@@ -13,9 +13,11 @@ import Stats from './components/Stats';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CvModal from './components/CvModal';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isCvOpen, setIsCvOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-[#030509] text-slate-100 font-sans selection:bg-[#2c67ed]/30 selection:text-white">
@@ -25,30 +27,33 @@ export default function App() {
 
       <div className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 h-screen overflow-hidden pointer-events-none' : 'opacity-100'}`}>
         {/* Interactive Space Starfield & Ambient Glow Canvas */}
-      <SpaceBackground />
+        <SpaceBackground />
 
-      {/* Smooth Trailing Blue Cursor with Spider-Sense mode */}
-      <CustomCursor />
+        {/* Smooth Trailing Blue Cursor with Spider-Sense mode */}
+        <CustomCursor />
 
-      {/* Floating Centered Glass Pill Navbar */}
-      <Navbar />
+        {/* Floating Centered Glass Pill Navbar */}
+        <Navbar onOpenCv={() => setIsCvOpen(true)} />
 
-      {/* Floating Aesthetic Music Player (bye x into you) */}
-      <MusicPlayer />
+        {/* Floating Aesthetic Music Player (bye x into you) */}
+        <MusicPlayer />
 
-      {/* Main Content Sections */}
-      <main className="relative z-10 flex flex-col gap-8 md:gap-12">
-        <Hero />
-        <About />
-        <Education />
-        <Experience />
-        <Stats />
-        <Portfolio />
-        <Contact />
-      </main>
+        {/* Main Content Sections */}
+        <main className="relative z-10 flex flex-col gap-8 md:gap-12">
+          <Hero onOpenCv={() => setIsCvOpen(true)} />
+          <About />
+          <Education />
+          <Experience />
+          <Stats />
+          <Portfolio />
+          <Contact />
+        </main>
 
-      {/* Minimalist Futuristic Footer */}
-      <Footer />
+        {/* Minimalist Futuristic Footer */}
+        <Footer />
+
+        {/* Interactive Curriculum Vitae Modal */}
+        <CvModal isOpen={isCvOpen} onClose={() => setIsCvOpen(false)} />
       </div>
     </div>
   );

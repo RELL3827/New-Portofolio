@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageSquare, Terminal, Sparkles, Code2, MapPin, GraduationCap, Cpu } from 'lucide-react';
+import { ArrowRight, MessageSquare, Terminal, Sparkles, Code2, MapPin, GraduationCap, Cpu, FileText } from 'lucide-react';
 import { personalData } from '../data/portfolioData';
 
-export default function Hero() {
+export default function Hero({ onOpenCv }) {
   const roles = personalData.roles;
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -127,11 +127,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-wrap items-center gap-3.5"
           >
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="btn-primary-blue px-6 py-3.5 rounded-xl font-medium text-sm sm:text-base flex items-center gap-2.5 group cursor-pointer"
+              className="btn-primary-blue px-5 sm:px-6 py-3.5 rounded-xl font-medium text-sm sm:text-base flex items-center gap-2.5 group cursor-pointer"
               data-cursor="hover"
             >
               <span>View My Work</span>
@@ -139,8 +139,20 @@ export default function Hero() {
             </button>
 
             <button
+              onClick={onOpenCv}
+              className="px-5 sm:px-6 py-3.5 rounded-xl font-medium text-sm sm:text-base text-cyan-300 hover:text-white bg-[#07132e]/80 hover:bg-[#2c67ed]/25 border border-[#2c67ed]/50 hover:border-[#38bdf8] shadow-[0_0_20px_rgba(44,103,237,0.25)] flex items-center gap-2 cursor-pointer transition-all group"
+              data-cursor="hover"
+            >
+              <FileText size={16} className="text-[#38bdf8] group-hover:scale-110 transition-transform" />
+              <span>Curriculum Vitae</span>
+              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#2c67ed]/40 border border-[#38bdf8]/40 text-[#38bdf8]">
+                PDF
+              </span>
+            </button>
+
+            <button
               onClick={() => scrollToSection('contact')}
-              className="glass-button px-6 py-3.5 rounded-xl font-medium text-sm sm:text-base text-slate-200 hover:text-white flex items-center gap-2.5 cursor-pointer"
+              className="glass-button px-5 sm:px-6 py-3.5 rounded-xl font-medium text-sm sm:text-base text-slate-200 hover:text-white flex items-center gap-2 cursor-pointer"
               data-cursor="hover"
             >
               <MessageSquare size={16} className="text-[#38bdf8]" />

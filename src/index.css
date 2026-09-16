@@ -146,3 +146,32 @@ h6,
     cursor: none !important;
   }
 }
+
+/* Print Styles for CV */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Hide background elements, navbar, music player during print */
+  header,
+  footer,
+  main > section,
+  #space-canvas,
+  .custom-cursor {
+    display: none !important;
+  }
+
+  .printable-cv {
+    color: #0f172a !important;
+    background: #ffffff !important;
+  }
+
+  .printable-cv * {
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
