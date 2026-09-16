@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import LightningStorm from './LightningStorm';
 
 export default function LoadingScreen({ onComplete }) {
   const [progress, setProgress] = useState(0);
@@ -35,6 +36,8 @@ export default function LoadingScreen({ onComplete }) {
       transition={{ duration: 0.8, ease: 'easeInOut' }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-[#030509] overflow-hidden"
     >
+      <LightningStorm frames={4} boltsPerFrame={5} flash />
+
       <div className="relative flex flex-col items-center justify-center w-full max-w-md p-8">
         {/* Background ambient glow syncing with progress */}
         <motion.div 
@@ -94,10 +97,10 @@ export default function LoadingScreen({ onComplete }) {
 
         {/* Realistic Lightning SVG */}
         <motion.div
-          className="relative w-40 h-64 flex items-center justify-center mb-6"
+          className="relative w-56 h-80 flex items-center justify-center mb-4"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1, ease: 'easeInOut' }}
+          transition={{ duration: 0.8, delay: 0.3, ease: 'easeInOut' }}
         >
           <motion.svg 
             viewBox="0 0 100 260" 
