@@ -67,12 +67,12 @@ export default function Navbar({ onOpenCv }) {
   return (
     <>
       {/* Centered Floating Desktop & Tablet Navbar */}
-      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-xl px-4 pointer-events-none">
+      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4 pointer-events-none">
         <motion.nav
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className={`pointer-events-auto flex items-center justify-between px-3 py-2 sm:px-4 sm:py-2.5 rounded-full transition-all duration-300 ${
+          className={`pointer-events-auto flex items-center justify-between px-3.5 py-2 sm:px-4 sm:py-2 rounded-full transition-all duration-300 ${
             isScrolled
               ? 'bg-[#070b14]/85 backdrop-blur-xl border border-[#2c67ed]/30 shadow-[0_8px_32px_rgba(0,0,0,0.6),0_0_20px_rgba(44,103,237,0.2)]'
               : 'bg-[#070b14]/60 backdrop-blur-lg border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.4),0_0_15px_rgba(44,103,237,0.1)]'
@@ -124,11 +124,11 @@ export default function Navbar({ onOpenCv }) {
             })}
           </div>
 
-          {/* Action Buttons: Music & Let's Connect */}
-          <div className="flex items-center gap-1.5">
+          {/* Action Buttons: Music, CV, Hire Me */}
+          <div className="flex items-center gap-2">
             <button
               onClick={toggleMusic}
-              className={`px-2.5 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 border ${
+              className={`h-8 px-3 rounded-full text-xs font-medium transition-all inline-flex items-center justify-center gap-1.5 border cursor-pointer leading-none ${
                 isMusicPlaying
                   ? 'text-[#38bdf8] border-[#38bdf8]/50 bg-[#2c67ed]/25 shadow-[0_0_15px_rgba(56,189,248,0.4)]'
                   : 'text-slate-300 border-white/10 hover:text-white hover:bg-white/10'
@@ -138,7 +138,7 @@ export default function Navbar({ onOpenCv }) {
               data-cursor="hover"
             >
               <Music size={13} className={isMusicPlaying ? 'animate-pulse text-[#38bdf8]' : 'text-slate-400'} />
-              <span className="hidden xs:inline-block text-[11px]">
+              <span className="hidden md:inline-block text-[11px]">
                 {isMusicPlaying ? 'Playing' : 'Soundtrack'}
               </span>
               {isMusicPlaying && (
@@ -153,7 +153,7 @@ export default function Navbar({ onOpenCv }) {
             {/* Curriculum Vitae Button */}
             <button
               onClick={onOpenCv}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#38bdf8] bg-[#2c67ed]/15 hover:bg-[#2c67ed]/30 border border-[#2c67ed]/40 hover:border-[#38bdf8] transition-all hover:shadow-[0_0_15px_rgba(44,103,237,0.35)] cursor-pointer"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium text-[#38bdf8] bg-[#2c67ed]/15 hover:bg-[#2c67ed]/30 border border-[#2c67ed]/40 hover:border-[#38bdf8] transition-all hover:shadow-[0_0_15px_rgba(44,103,237,0.35)] cursor-pointer leading-none"
               title="Lihat & Download CV"
               data-cursor="hover"
             >
@@ -161,13 +161,15 @@ export default function Navbar({ onOpenCv }) {
               <span>CV</span>
             </button>
 
+            {/* Hire Me Primary Button */}
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-              className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white border border-white/10 hover:bg-white/10 transition-all"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 h-8 px-3.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#2c67ed] to-[#38bdf8] hover:from-[#3b74f3] hover:to-[#60a5fa] shadow-[0_0_15px_rgba(44,103,237,0.4)] hover:shadow-[0_0_20px_rgba(56,189,248,0.55)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer leading-none"
               data-cursor="hover"
             >
-              Hire Me
+              <span>Hire Me</span>
+              <Sparkles size={11} className="text-cyan-200" />
             </a>
           </div>
 
