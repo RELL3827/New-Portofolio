@@ -199,6 +199,19 @@ export const projectsData = [
     liveUrl: "https://skinsq-kecantikan-rell3827s-projects.vercel.app/",
     metrics: "AI Face Scanner • 9 Biomarkers",
     featured: true
+  },
+  {
+    id: "LaundryPro",
+    title: "LaundryPro",
+    subtitle: "Sistem Manajemen & Kasir POS Laundry Modern",
+    category: "SaaS Application",
+    description: "Aplikasi kasir POS laundry modern berbasis cloud dengan fitur nota digital WhatsApp otomatis, pelacakan cucian real-time oleh pelanggan, dan laporan keuangan multi-outlet.",
+    image: "/projects/kasirku.svg",
+    technologies: ["React", "Tailwind CSS", "Laravel", "MySQL"],
+    githubUrl: "https://github.com/RELL3827",
+    liveUrl: "https://saa-s-laundry-manajemen.vercel.app/",
+    metrics: "POS 30 Detik • WhatsApp Nota",
+    featured: true
   }
 ];
 
