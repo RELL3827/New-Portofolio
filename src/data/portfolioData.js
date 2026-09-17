@@ -9,7 +9,7 @@ export const personalData = {
     "UI Engineer",
     "Problem Solver"
   ],
-  bio: "Lulusan Teknik Komputer & Jaringan dan mahasiswa Teknik Informatika dengan dedikasi tinggi. Menggabungkan pengalaman kerja nyata di industri operasional, pemahaman infrastruktur jaringan, serta keahlian rekayasa antarmuka web modern.",
+  bio: "Lulusan Teknik Komputer & Jaringan, dan mahasiswa Teknik Informatika dengan dedikasi tinggi. Menggabungkan pengalaman kerja nyata di industri operasional, pemahaman infrastruktur jaringan, serta keahlian rekayasa antarmuka web modern.",
   about: [
     "Saya, Farel Rizky Pratama, adalah lulusan baru yang penuh semangat dan siap untuk membawa energi positif ke dunia profesional. Dengan latar belakang pendidikan dalam komputer dan jaringan serta studi S1 Teknik Informatika di Universitas Muhammadiyah Cilegon, saya telah mendapatkan pemahaman yang kuat tentang ilmu komputer dan keterampilan praktis yang diperlukan untuk berkembang di dunia kerja.",
     "Bagi saya, setiap peran—mulai dari melayani pelanggan & menaikkan sales di industri F&B, merancang SOP usaha kecil, mengelola logistik & live commerce TikTok, hingga membangun aplikasi web modern—selalu dijalani dengan integritas, kepemimpinan adaptif, dan rasa tanggung jawab penuh."
