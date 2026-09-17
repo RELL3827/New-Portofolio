@@ -130,7 +130,7 @@ export default function Hero({ onOpenCv }) {
             className="flex flex-wrap items-center gap-3.5"
           >
             <button
-              onClick={() => scrollToSection('portfolio')}
+              onClick={() => scrollToSection('project')}
               className="btn-primary-blue px-5 sm:px-6 py-3.5 rounded-xl font-medium text-sm sm:text-base flex items-center gap-2.5 group cursor-pointer"
               data-cursor="hover"
             >

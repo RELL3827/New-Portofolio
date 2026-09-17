@@ -5,7 +5,7 @@ import { Menu, X, Sparkles, Terminal, User, Briefcase, Mail, Music, FileText } f
 const navItems = [
   { label: 'Home', href: '#hero', id: 'hero', icon: Terminal },
   { label: 'About', href: '#about', id: 'about', icon: User },
-  { label: 'Portfolio', href: '#portfolio', id: 'portfolio', icon: Briefcase },
+  { label: 'Project', href: '#project', id: 'project', icon: Briefcase },
   { label: 'Contact', href: '#contact', id: 'contact', icon: Mail },
 ];
 
@@ -34,7 +34,7 @@ export default function Navbar({ onOpenCv }) {
       setIsScrolled(window.scrollY > 40);
 
       // Section spy
-      const sections = ['hero', 'about', 'portfolio', 'contact'];
+      const sections = ['hero', 'about', 'project', 'projects', 'portfolio', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -43,7 +43,11 @@ export default function Navbar({ onOpenCv }) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
+            if (sectionId === 'projects' || sectionId === 'portfolio') {
+              setActiveSection('project');
+            } else {
+              setActiveSection(sectionId);
+            }
             break;
           }
         }

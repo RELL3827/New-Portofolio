@@ -8,7 +8,11 @@ export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('projects'); // 'projects' | 'tech'
 
   return (
-    <section id="portfolio" className="relative py-24 px-4 sm:px-6 lg:px-8 z-10">
+    <section id="project" className="relative py-24 px-4 sm:px-6 lg:px-8 z-10">
+      {/* Anchor fallbacks for smooth navigation compatibility */}
+      <div id="projects" className="absolute -top-24 pointer-events-none" />
+      <div id="portfolio" className="absolute -top-24 pointer-events-none" />
+
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-14">
@@ -19,7 +23,7 @@ export default function Portfolio() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2c67ed]/10 border border-[#2c67ed]/30 text-[#38bdf8] text-xs font-mono mb-3"
           >
             <Sparkles size={12} />
-            <span>02 // Portfolio Hub</span>
+            <span>02 // Project Hub</span>
           </motion.div>
 
           <motion.h2
