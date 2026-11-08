@@ -162,15 +162,15 @@ export const statsData = [
 
 export const projectsData = [
   {
-    id: "Eltrack",
-    title: "ElTrack",
+    id: "Dompetku",
+    title: "Dompetku",
     subtitle: "Personal Finance & Cashflow Management System",
     category: "Full-Stack Web App",
     description: "Sistem manajemen keuangan komprehensif yang membantu pengguna memantau arus kas, pemasukan, pengeluaran bulanan, analisis tabungan, serta visualisasi grafik interaktif secara realtime.",
     image: "/projects/fintrack.svg",
     technologies: ["Laravel 11", "Tailwind CSS", "MySQL", "Chart.js", "PHP"],
-    githubUrl: "https://github.com/RELL3827/Manajemen-keuangan-App",
-    liveUrl: "https://manajemen-keuangan-app-wheat.vercel.app",
+    githubUrl: "https://github.com/RELL3827/Manajemen-Keuangan-V3",
+    liveUrl: "https://dompetku-manajement-money.vercel.app/",
     metrics: "Rp 24M+ Tracked • 99.8% Reliability",
     featured: true
   },
